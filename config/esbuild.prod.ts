@@ -1,15 +1,38 @@
-import process from 'node:process';
 import esbuild from 'esbuild';
 
-import common from './esbuild.common';
+// Extension build: IIFE for EDA Pro browser environment
+const extensionConfig: esbuild.BuildOptions = {
+	entryPoints: { 'index': './src/extension/index' },
+	entryNames: '[name]',
+	bundle: true,
+	minify: false,
+	outdir: './dist/',
+	platform: 'browser',
+	format: 'iife',
+	globalName: 'edaEsbuildExportName',
+	treeShaking: true,
+	ignoreAnnotations: true,
+};
+
+// MCP Server build: CJS for Node.js
+const mcpServerConfig: esbuild.BuildOptions = {
+	entryPoints: { 'index': './src/mcp-server/index' },
+	entryNames: '[name]',
+	bundle: true,
+	minify: false,
+	outdir: './dist/mcp-server/',
+	platform: 'node',
+	format: 'cjs',
+	treeShaking: true,
+	external: [],
+};
 
 (async () => {
-	const ctx = await esbuild.context(common);
-	if (process.argv.includes('--watch')) {
-		await ctx.watch();
-	}
-	else {
-		await ctx.rebuild();
-		process.exit();
-	}
+	// Build extension
+	await esbuild.build(extensionConfig);
+	console.log('[esbuild] Extension built');
+
+	// Build MCP server
+	await esbuild.build(mcpServerConfig);
+	console.log('[esbuild] MCP Server built');
 })();

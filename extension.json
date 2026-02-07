@@ -1,99 +1,46 @@
 {
-	"name": "pro-api-sdk",
-	"uuid": "4d178577408e469596af3d0b5df241f0",
-	"displayName": "EasyEDA MCP Bridge",
-	"description": "EasyEDA Pro MCP bridge extension for local agent and automation workflows",
-	"version": "1.3.2",
+	"name": "easyeda-agent-mcp-server",
+	"uuid": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
+	"displayName": "EasyEDA Agent",
+	"description": "MCP Bridge - Connect Claude Code to EasyEDA Pro",
+	"version": "1.0.0",
 	"publisher": "",
 	"engines": {
-		"eda": "^3.0.0"
+		"eda": "^2.3.0"
 	},
-	"license": "Apache-2.0",
+	"license": "MIT",
 	"repository": {
-		"type": "extension-store",
+		"type": "git",
 		"url": ""
 	},
 	"categories": "Other",
-	"keywords": [
-		"SDK"
-	],
+	"keywords": ["MCP", "Claude", "PCB", "Optimizer"],
 	"images": {
 		"logo": "./images/logo.png"
 	},
-	"homepage": "",
-	"bugs": "",
 	"activationEvents": {},
 	"entry": "./dist/index",
 	"dependentExtensions": {},
 	"headerMenus": {
-		"home": [
-			{
-				"id": "EasyEDA MCP Bridge",
-				"title": "EasyEDA MCP Bridge",
-				"menuItems": [
-					{
-						"id": "MCP Bridge Reconnect",
-						"title": "Reconnect",
-						"registerFn": "bridgeReconnect"
-					},
-					{
-						"id": "MCP Bridge Status",
-						"title": "Status",
-						"registerFn": "bridgeStatus"
-					}
-				]
-			}
-		],
-		"blank": [
-			{
-				"id": "EasyEDA MCP Bridge",
-				"title": "EasyEDA MCP Bridge",
-				"menuItems": [
-					{
-						"id": "MCP Bridge Reconnect",
-						"title": "Reconnect",
-						"registerFn": "bridgeReconnect"
-					},
-					{
-						"id": "MCP Bridge Status",
-						"title": "Status",
-						"registerFn": "bridgeStatus"
-					}
-				]
-			}
-		],
-		"sch": [
-			{
-				"id": "EasyEDA MCP Bridge",
-				"title": "EasyEDA MCP Bridge",
-				"menuItems": [
-					{
-						"id": "MCP Bridge Reconnect",
-						"title": "Reconnect",
-						"registerFn": "bridgeReconnect"
-					},
-					{
-						"id": "MCP Bridge Status",
-						"title": "Status",
-						"registerFn": "bridgeStatus"
-					}
-				]
-			}
-		],
 		"pcb": [
 			{
-				"id": "EasyEDA MCP Bridge",
-				"title": "EasyEDA MCP Bridge",
+				"id": "ClaudeMCP",
+				"title": "Claude",
 				"menuItems": [
 					{
-						"id": "MCP Bridge Reconnect",
-						"title": "Reconnect",
-						"registerFn": "bridgeReconnect"
+						"id": "ConnectClaude",
+						"title": "Connect Claude",
+						"registerFn": "connectClaude"
 					},
 					{
-						"id": "MCP Bridge Status",
-						"title": "Status",
-						"registerFn": "bridgeStatus"
+						"id": "DisconnectClaude",
+						"title": "Disconnect Claude",
+						"registerFn": "disconnectClaude"
+					},
+					{
+						"id": "About",
+						"title": "About...",
+						"registerFn": "about"
 					}
 				]
 			}
