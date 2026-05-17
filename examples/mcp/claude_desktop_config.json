@@ -2,8 +2,7 @@
 	"mcpServers": {
 		"easyeda-mcp": {
 			"command": "npm",
-			"args": ["run", "mcp:server"],
-			"cwd": "/home/i/repos/EasyEDA-MCP"
+			"args": ["--prefix", "/absolute/path/to/EasyEDA-MCP", "run", "-s", "mcp:server"]
 		}
 	}
 }
